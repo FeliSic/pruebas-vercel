@@ -36,6 +36,9 @@ module.exports = {
       },
     ],
   },
+  stats: {
+    children: true,
+  },
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx", ".css"], // Extensiones soportadas
   },
