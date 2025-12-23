@@ -11,14 +11,14 @@ export default function MyUserReports() {
   useEffect(() => {
     const fetchPets = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/users/${userId}/pets`);
+        const res = await fetch(`/api/users/${userId}/pets`);
         if (!res.ok) throw new Error("Error al obtener las mascotas");
         const data = await res.json();
         console.log("Datos de mascotas:", data);
         const petsArray = data.reports || data.pets || [];
         console.log("Array de mascotas:", petsArray);
         setPets(petsArray);
-      } catch (err) {
+      } catch (err: Error | any) {
         setError(err.message);
       } finally {
         setLoading(false);
@@ -27,7 +27,7 @@ export default function MyUserReports() {
     fetchPets();
   }, [userId, navigate]);
 
-  const handleEditPet = (petId) => {
+  const handleEditPet = (petId: string) => {
   navigate(`/edit-pet/${petId}`); // Redirige a una nueva ruta para editar la mascota
   };
 
@@ -35,16 +35,16 @@ export default function MyUserReports() {
     navigate("/reporting");
   };
 
-  const handleDeletePet = async (petId) => {
+  const handleDeletePet = async (petId: string) => {
   if (window.confirm("¿Estás seguro de que deseas eliminar esta mascota?")) {
     try {
-      const res = await fetch(`http://localhost:3000/users/${userId}/pets/${petId}`, {
+      const res = await fetch(`/api/users/${userId}/pets/${petId}`, {
         method: "DELETE",
       });
       if (!res.ok) throw new Error("Error al eliminar la mascota");
       alert("Mascota eliminada con éxito");
-      setPets((prevPets) => prevPets.filter((pet) => pet.id !== petId)); // Actualiza el estado
-    } catch (err) {
+      setPets((prevPets) => prevPets.filter((pet: any) => pet.id !== petId)); // Actualiza el estado
+    } catch (err: Error | any) {
       setError(err.message);
     }
   }
@@ -57,7 +57,7 @@ export default function MyUserReports() {
       {error && <p style={{ color: "red" }}>{error}</p>}
       {pets.length > 0 && (
         <ul>
-          {pets.map((pet) => (
+          {pets.map((pet: any) => (
             <li key={pet.id}>
             {pet.name}
             <button onClick={() => handleEditPet(pet.id)}>Editar</button>

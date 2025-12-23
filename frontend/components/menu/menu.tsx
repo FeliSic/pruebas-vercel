@@ -12,12 +12,12 @@ export default function MyMenu() {
     navigate("/register"); // Redirige a la página de login
   };
 
-  const handleChangeData = (e) => {
+  const handleChangeData = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     navigate("/change-data");
   };
 
-  const handleChangePassword = (e) => {
+  const handleChangePassword = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     navigate("/change-password");
   };
@@ -29,7 +29,7 @@ export default function MyMenu() {
     }
 
     try {
-      const response = await fetch(`http://localhost:3000/users/${userId}`, {
+      const response = await fetch(`/api/users/${userId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
