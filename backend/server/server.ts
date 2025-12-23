@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, '../../dist'))); // Serve static fil
 // USER ENDPOINTS
 // ============================================
 
-app.post('/register', async (req, res) => {
+app.post('/api/register', async (req, res) => {
   // Logic to create a new user
   const { name, email, password } = req.body;
 
@@ -32,7 +32,7 @@ app.post('/register', async (req, res) => {
 });
 
 
-app.post('/login', async (req, res) => {
+app.post('/api/login', async (req, res) => {
   // Logic to log in a user
   const { email, password } = req.body; 
   try { 
@@ -114,7 +114,7 @@ app.put('/api/users/:id', async (req, res) => {
 
 
 // Crear mascota
-app.post('/post-pets', async (req, res) => {
+app.post('/api/post-pets', async (req, res) => {
   console.log("Datos recibidos:", req.body);
   try {
     const pet = await createPet(req.body);
@@ -127,7 +127,7 @@ app.post('/post-pets', async (req, res) => {
 
 
 // Obtener mascotas de un usuario
-app.get('/users/:userId/pets', async (req, res) => {
+app.get('/api/users/:userId/pets', async (req, res) => {
   try {
     const pets = await getPetsByUserId(Number(req.params.userId));
     res.json(pets);
@@ -138,7 +138,7 @@ app.get('/users/:userId/pets', async (req, res) => {
 
 
 // Actualizar mascota
-app.put('/users/:userId/pets/:petId', async (req, res) => {
+app.put('/api/users/:userId/pets/:petId', async (req, res) => {
   try {
     const updated = await updatePet(Number(req.params.petId), Number(req.params.userId), req.body);
     res.json(updated);
@@ -149,7 +149,7 @@ app.put('/users/:userId/pets/:petId', async (req, res) => {
 
 
 // Eliminar mascota
-app.delete('/users/:userId/pets/:petId', async (req, res) => {
+app.delete('/api/users/:userId/pets/:petId', async (req, res) => {
   try {
     const deleted = await deletePet(Number(req.params.petId), Number(req.params.userId));
     res.json(deleted);
@@ -176,7 +176,7 @@ app.get('/pets', async (req, res) => {
 // ============================================
 
 // Crear un reporte de avistaje
-app.post('/report/:petId', async (req, res) => {
+app.post('/api/report/:petId', async (req, res) => {
   try {
     const petId = Number(req.params.petId);
     const { reporterName, reporterPhone, location, message } = req.body;
@@ -203,7 +203,7 @@ app.post('/report/:petId', async (req, res) => {
 });
 
 // Obtener todas las mascotas de un usuario (como dueño)
-app.get('/users/:userId/pets', async (req, res) => {
+app.get('/api/users/:userId/pets', async (req, res) => {
   try {
     const userId = Number(req.params.userId);
     const result = await getPetsByOwnerId(userId);
@@ -215,7 +215,7 @@ app.get('/users/:userId/pets', async (req, res) => {
 
 
 // Obtener todos los reportes de un usuario (como dueño)
-app.get('/users/:userId/reports', async (req, res) => {
+app.get('/api/users/:userId/reports', async (req, res) => {
   try {
     const userId = Number(req.params.userId);
     const result = await getReportsByOwnerId(userId);
@@ -227,7 +227,7 @@ app.get('/users/:userId/reports', async (req, res) => {
 });
 
 // Obtener reportes de una mascota específica
-app.get('/pets/:petId/reports', async (req, res) => {
+app.get('/api/pets/:petId/reports', async (req, res) => {
   try {
     const petId = Number(req.params.petId);
     const userId = Number(req.query.userId);
@@ -244,7 +244,7 @@ app.get('/pets/:petId/reports', async (req, res) => {
 });
 
 // Buscar mascotas cercanas (nearby-pets)
-app.post('/nearby-pets', async (req, res) => {
+app.post('/api/nearby-pets', async (req, res) => {
   try {
     const { lat, lng, radius } = req.body;
 
