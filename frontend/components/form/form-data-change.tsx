@@ -24,7 +24,7 @@ export default function MyChangerData() {
     await changeData(updateData);
   };
 
-    const handleBack = async (e) => {
+    const handleBack = async (e: React.MouseEvent) => {
       e.preventDefault();
       window.history.back();
     }
