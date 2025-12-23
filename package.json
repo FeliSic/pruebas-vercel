@@ -9,7 +9,7 @@
     "dev:frontend": "webpack serve --config webpack.config.js --mode development --port 4000",
     "dev": "concurrently \"yarn dev:backend\" \"yarn dev:frontend\"",
     "list-files": "ls -R",
-    "build": "yarn list-files && yarn build:backend && yarn build:frontend",
+    "build": "yarn build:backend && yarn build:frontend",
     "build:frontend": "NODE_ENV=production tsc -p tsconfig.frontend.json && webpack --mode production",
     "build:backend": "tsc -p tsconfig.backend.json",
     "start": "node dist/server/server.js"
