@@ -10,7 +10,7 @@
     "dev": "concurrently \"yarn dev:backend\" \"yarn dev:frontend\"",
     "build": "yarn build:backend && yarn build:frontend",
     "build:frontend": "NODE_ENV=production tsc -p tsconfig.frontend.json && webpack --mode production",
-    "build:backend": "tsc -p ",
+    "build:backend": "tsc -p tsconfig.backend.json",
     "start": "node dist/server/server.js"
   },
   "dependencies": {
