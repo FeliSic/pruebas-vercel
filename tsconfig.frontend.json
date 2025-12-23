@@ -2,9 +2,10 @@
   "compilerOptions": {
     "target": "es6", // o "es6" según lo que necesites
     "baseUrl": "frontend",
-      "paths": {
+    "paths": {
       "components/*": ["components/*"],
-      "hooks/*": ["hooks/*"]
+      "hooks/*": ["hooks/*"],
+      "pages/*": ["pages/*"]
     },
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,

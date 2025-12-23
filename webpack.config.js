@@ -1,6 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 module.exports = {
   entry: "./frontend/index.tsx", // Punto de entrada
   output: {
@@ -41,6 +41,11 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx", ".css"], // Extensiones soportadas
+    plugins: [
+      new TsconfigPathsPlugin({
+        configFile: "./tsconfig.frontend.json",
+      }),
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
