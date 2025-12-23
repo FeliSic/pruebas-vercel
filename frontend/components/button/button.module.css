@@ -1,0 +1,21 @@
+.menu1Button {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #5982FF;
+  border: 5px solid #1B399E;
+  border-radius: 5px;
+  color: #EEE;
+  cursor: pointer;
+}
+
+.menu2Button {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #8CD48D;
+  border: 5px solid #002900;
+  border-radius: 5px;
+  color: #EEE;
+  cursor: pointer;
+}

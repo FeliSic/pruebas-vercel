@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es6", // o "es6" según lo que necesites
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx", // o "react" si usas una versión anterior
+    "outDir": "./dist" // carpeta donde se generarán los archivos compilados
+  },
+  "include": ["frontend/**/*"], // incluye todos los archivos en frontend
+  "exclude": ["node_modules"] // excluye la carpeta node_modules
+}

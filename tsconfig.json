@@ -1,0 +1,53 @@
+{
+  "compilerOptions": {
+    // 🎯 Versión de JavaScript a la que se transpila el código
+    "target": "ES6",
+
+    // 📦 Sistema de módulos que se genera en el JS final
+    // Usa "ESNext" en proyectos modernos con bundlers (Vite, Webpack)
+    // Usa "CommonJS" si trabajas directamente con Node.js
+    "module": "ESNext",
+
+    // 🔑 Necesario para importar JSON y resolver módulos como Node
+    "moduleResolution": "node",
+
+    // ⚛️ Configuración para soportar JSX en archivos .tsx
+    "jsx": "react-jsx",
+
+    // 🔒 Activa todas las comprobaciones estrictas de TypeScript
+    "strict": true,
+
+    // 🔄 Permite importar librerías CommonJS con sintaxis de ESModules
+    "esModuleInterop": true,
+
+    // 🔠 Fuerza consistencia en nombres de archivos (mayúsculas/minúsculas)
+    "forceConsistentCasingInFileNames": true,
+
+    // 🚫 Omite chequeo de tipos en librerías externas
+    "skipLibCheck": true,
+
+    // 📂 Permite importar archivos JSON como módulos
+    "resolveJsonModule": true,
+
+    // 🛣️ Define la carpeta raíz para imports absolutos
+    "baseUrl": "./frontend",
+
+    // 🗺️ Alias de rutas: evita imports largos y relativos
+    "paths": {
+      "components/*": ["components/*"],
+      "hooks/*": ["hooks/*"]
+    },
+
+    // 📤 Carpeta donde se colocará el JS compilado
+    "outDir": "./dist",
+
+    // 📥 Carpeta de entrada para el compilador
+    "rootDir": "./frontend"
+  },
+
+  // 📌 Carpetas que se incluyen en la compilación
+  "include": ["frontend"],
+
+  // 🚫 Carpetas que se excluyen de la compilación
+  "exclude": ["node_modules", "dist"]
+}
