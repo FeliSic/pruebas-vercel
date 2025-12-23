@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: path.resolve(__dirname, "frontend/index.tsx"), // Punto de entrada
+  entry: "./frontend/index.tsx", // Punto de entrada
   output: {
     path: path.resolve(__dirname, "dist"), // Carpeta de salida
     filename: "bundle.js", // Nombre del archivo generado
@@ -44,7 +44,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "frontend/public/index.html"), // Plantilla HTML
+      template: "./frontend/public/index.html", // Plantilla HTML
     }),
   ],
   devServer: {

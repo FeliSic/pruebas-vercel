@@ -8,9 +8,9 @@
     "dev:backend": "ts-node-dev --respawn --transpile-only --project tsconfig.backend.json be-server/server/server.ts",
     "dev:frontend": "webpack serve --config webpack.config.js --mode development --port 4000",
     "dev": "concurrently \"yarn dev:backend\" \"yarn dev:frontend\"",
-    "list-files": "ls -R",
-    "build": "yarn build:backend && yarn build:frontend",
-    "build:frontend": "NODE_ENV=production tsc -p tsconfig.frontend.json && webpack --mode production",
+    "debug": "pwd && ls -la && ls -la frontend/ && cat webpack.config.js | head -20",
+    "build": "yarn debug && yarn build:backend && yarn build:frontend",
+    "build:frontend": "webpack --mode production",
     "build:backend": "tsc -p tsconfig.backend.json",
     "start": "node dist/server/server.js"
   },
