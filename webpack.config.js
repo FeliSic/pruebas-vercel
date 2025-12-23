@@ -2,14 +2,13 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./frontend/index.js", // Punto de entrada
+  entry: "./frontend/index.tsx", // Punto de entrada
   output: {
     path: path.resolve(__dirname, "dist"), // Carpeta de salida
     filename: "bundle.js", // Nombre del archivo generado
     clean: true, // Limpia la carpeta dist en cada build
   },
   mode: "production", // Modo de producción
-  mode: "desarrollo", // Modo de desarrollo
   module: {
     rules: [
       {
@@ -42,7 +41,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./dist/index.html", // Plantilla HTML
+      template: "./frontend/index.html", // Plantilla HTML
     }),
   ],
   devServer: {
